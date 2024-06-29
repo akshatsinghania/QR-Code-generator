@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import "./App.css";
-
+import QRCode from "react-qr-code";
 function App() {
   const [qrCode, setQrCode] = useState("");
   const [input, setInput] = useState("");
 
+  function handleGenerateQrCode() {
+    setQrCode(input);
+  }
   return (
     <>
       <header>
@@ -17,9 +20,16 @@ function App() {
           name="qr-code"
           placeholder="Enter"
         />
-        <button>Generate</button>
+        <button
+          disabled={input && input.trim() !== "" ? false : true}
+          onClick={handleGenerateQrCode}
+        >
+          Generate
+        </button>
       </div>
-      <div>{/* <QRCode id="qr-code-value" value="" /> */}</div>
+      <div>
+        <QRCode id="qr-code-value" value="" />
+      </div>
     </>
   );
 }
