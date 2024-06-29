@@ -6,6 +6,15 @@
   height: 40vmin;
   pointer-events: none;
 }
+.qrCodeGenerator {
+  text-align: center;
+}
+.qrCodeGenerator h1 {
+  margin-top: 10px;
+}
+.inpu {
+  margin-bottom: 50px;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

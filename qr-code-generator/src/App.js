@@ -7,18 +7,20 @@ function App() {
 
   function handleGenerateQrCode() {
     setQrCode(input);
+    setInput("");
   }
   return (
-    <>
+    <div className="qrCodeGenerator">
       <header>
         <h1>QR Code Generator</h1>
       </header>
-      <div>
+      <div className="inpu">
         <input
           onChange={(e) => setInput(e.target.value)}
           type="text"
           name="qr-code"
-          placeholder="Enter"
+          value={input}
+          placeholder="Enter your value here"
         />
         <button
           disabled={input && input.trim() !== "" ? false : true}
@@ -28,9 +30,9 @@ function App() {
         </button>
       </div>
       <div>
-        <QRCode id="qr-code-value" value="" />
+        <QRCode id="qr-code-value" value={qrCode} size={400} bgColor="#fff" />
       </div>
-    </>
+    </div>
   );
 }
 
