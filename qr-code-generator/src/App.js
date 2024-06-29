@@ -1,13 +1,26 @@
-import logo from "./logo.svg";
+import React, { useState } from "react";
 import "./App.css";
 
 function App() {
+  const [qrCode, setQrCode] = useState("");
+  const [input, setInput] = useState("");
+
   return (
-    <div className="App">
+    <>
       <header>
         <h1>QR Code Generator</h1>
       </header>
-    </div>
+      <div>
+        <input
+          onChange={(e) => setInput(e.target.value)}
+          type="text"
+          name="qr-code"
+          placeholder="Enter"
+        />
+        <button>Generate</button>
+      </div>
+      <div>{/* <QRCode id="qr-code-value" value="" /> */}</div>
+    </>
   );
 }
 
